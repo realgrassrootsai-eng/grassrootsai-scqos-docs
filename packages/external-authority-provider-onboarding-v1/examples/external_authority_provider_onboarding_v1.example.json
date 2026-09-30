@@ -1,0 +1,54 @@
+{
+  "display_name": "Example External Authority Provider",
+  "envelope_mapping": {
+    "action_intent_digest": "provider.action_digest",
+    "evidence_ref": "provider.evidence_ref",
+    "expires_at": "provider.expires_at",
+    "issued_at": "provider.issued_at",
+    "nonce": "provider.nonce",
+    "proof_digest": "provider.proof.digest",
+    "proof_format": "provider.proof.format",
+    "scope_refs": "provider.scopes",
+    "subject_id": "provider.subject",
+    "target_ref": "provider.target",
+    "transition_id": "provider.transition_id"
+  },
+  "evidence": {
+    "evidence_reference_semantics": "Immutable provider evidence reference for the authority event.",
+    "verifier_receipt_reference_semantics": "Immutable provider verifier receipt reference."
+  },
+  "failure_semantics": {
+    "adapter_exception": "fail_closed",
+    "malformed_verification": "fail_closed",
+    "proof_invalid": "fail_closed"
+  },
+  "negative_probes": [
+    "changed_subject",
+    "changed_transition",
+    "changed_action_intent",
+    "wrong_target",
+    "insufficient_scope",
+    "expired_authority",
+    "wrong_envelope_digest",
+    "invalid_provider_proof"
+  ],
+  "proof": {
+    "proof_format": "example-provider-proof-v1",
+    "verification_owner": "provider"
+  },
+  "provider_contract_version": "example-provider-contract-v1",
+  "provider_id": "external-authority:example-provider",
+  "safety_boundary": {
+    "live_execution_enabled": false,
+    "network_access_owned_by_provider": true,
+    "scqos_authority_consumption": false,
+    "scqos_writer_access": false
+  },
+  "schema_version": "external_authority_provider_onboarding_v1",
+  "verifier": {
+    "entrypoint": "example_provider.verify_envelope",
+    "input_contract": "ExternalAuthorityEnvelopeV1",
+    "output_contract": "ExternalAuthorityVerificationV1",
+    "verifier_id": "verifier:example-provider:v1"
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "$id": "external_authority_provider_onboarding_v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "display_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "envelope_mapping": {
+      "additionalProperties": false,
+      "properties": {
+        "action_intent_digest": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "evidence_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "expires_at": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "issued_at": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "nonce": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "proof_digest": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "proof_format": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "scope_refs": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "subject_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "target_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "transition_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "subject_id",
+        "transition_id",
+        "action_intent_digest",
+        "target_ref",
+        "scope_refs",
+        "issued_at",
+        "expires_at",
+        "nonce",
+        "evidence_ref",
+        "proof_format",
+        "proof_digest"
+      ],
+      "type": "object"
+    },
+    "evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_reference_semantics": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "verifier_receipt_reference_semantics": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_reference_semantics",
+        "verifier_receipt_reference_semantics"
+      ],
+      "type": "object"
+    },
+    "failure_semantics": {
+      "additionalProperties": false,
+      "properties": {
+        "adapter_exception": {
+          "const": "fail_closed"
+        },
+        "malformed_verification": {
+          "const": "fail_closed"
+        },
+        "proof_invalid": {
+          "const": "fail_closed"
+        }
+      },
+      "required": [
+        "adapter_exception",
+        "malformed_verification",
+        "proof_invalid"
+      ],
+      "type": "object"
+    },
+    "negative_probes": {
+      "items": {
+        "enum": [
+          "changed_subject",
+          "changed_transition",
+          "changed_action_intent",
+          "wrong_target",
+          "insufficient_scope",
+          "expired_authority",
+          "wrong_envelope_digest",
+          "invalid_provider_proof"
+        ]
+      },
+      "minItems": 8,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "proof": {
+      "additionalProperties": false,
+      "properties": {
+        "proof_format": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "verification_owner": {
+          "const": "provider"
+        }
+      },
+      "required": [
+        "proof_format",
+        "verification_owner"
+      ],
+      "type": "object"
+    },
+    "provider_contract_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "provider_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9._:-]+$",
+      "type": "string"
+    },
+    "safety_boundary": {
+      "additionalProperties": false,
+      "properties": {
+        "live_execution_enabled": {
+          "const": false
+        },
+        "network_access_owned_by_provider": {
+          "const": true
+        },
+        "scqos_authority_consumption": {
+          "const": false
+        },
+        "scqos_writer_access": {
+          "const": false
+        }
+      },
+      "required": [
+        "network_access_owned_by_provider",
+        "scqos_writer_access",
+        "scqos_authority_consumption",
+        "live_execution_enabled"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "external_authority_provider_onboarding_v1"
+    },
+    "verifier": {
+      "additionalProperties": false,
+      "properties": {
+        "entrypoint": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "input_contract": {
+          "const": "ExternalAuthorityEnvelopeV1"
+        },
+        "output_contract": {
+          "const": "ExternalAuthorityVerificationV1"
+        },
+        "verifier_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "entrypoint",
+        "input_contract",
+        "output_contract",
+        "verifier_id"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "provider_id",
+    "display_name",
+    "provider_contract_version",
+    "envelope_mapping",
+    "verifier",
+    "proof",
+    "evidence",
+    "failure_semantics",
+    "negative_probes",
+    "safety_boundary"
+  ],
+  "title": "External Authority Provider Onboarding v1",
+  "type": "object"
+}

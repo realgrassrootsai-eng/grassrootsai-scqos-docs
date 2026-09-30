@@ -15,6 +15,7 @@ It must not contain production source code, cloud account identifiers, credentia
 - [Architecture overview](docs/architecture/overview.md)
 - [Eight invariants](docs/concepts/eight-invariants.md)
 - [External authority onboarding](docs/onboarding/external-authority.md)
+- [Versioned provider onboarding v1](packages/external-authority-provider-onboarding-v1/docs/EXTERNAL_AUTHORITY_PROVIDER_ONBOARDING_V1.md)
 - [Interoperability](docs/interoperability/README.md)
 - [Demo guidance](docs/demos/README.md)
 - [Schemas](schemas/README.md)
