@@ -14,6 +14,7 @@ It must not contain production source code, cloud account identifiers, credentia
 
 - [Architecture overview](docs/architecture/overview.md)
 - [Eight invariants](docs/concepts/eight-invariants.md)
+- [SCQOS Formal Model v0.2](docs/formal/scqos-formal-model-v0.2.md)
 - [External authority onboarding](docs/onboarding/external-authority.md)
 - [Versioned provider onboarding v1](packages/external-authority-provider-onboarding-v1/docs/EXTERNAL_AUTHORITY_PROVIDER_ONBOARDING_V1.md)
 - [Interoperability](docs/interoperability/README.md)

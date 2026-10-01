@@ -9,6 +9,8 @@ SCQOS currently organizes admissibility around eight invariant categories.
 5. **Boundary** — the requested consequence must remain inside the authorized scope.
 6. **Reference** — the proposal and authorization must refer to the same relevant state, object, or content.
 7. **Causality** — claimed causes, actions, and consequences must correspond to the actual governed transition.
-8. **Coherence** — the event must remain internally consistent across the evidence required to justify execution.
+8. **Consciousness** — cross-evidence coherence must hold, and material change must not silently inherit prior qualification; when required, the transition must be explicitly requalified against current proof.
+
+**Coherence is an internal mechanism used by Consciousness, not a ninth invariant or the canonical eighth invariant.**
 
 A HOLD means at least one required condition for admissibility was not established. A PERMIT means the evaluated proposal satisfied the required checks for that governed event. It does not imply unlimited or reusable authority.
